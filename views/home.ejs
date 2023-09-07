@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title%></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <h1><i class="fa-solid fa-address-book"></i> Contact List</h1>
+      </div>
+      <% for (let i of contact_list){%>
+      <div class="contact">
+        <div class="contact-info">
+          <p><%= i.name %></p>
+          <p><%= i.phone %></p>
+          <div class="delete-button">
+            <a href="/delete-contact/?id=<%= i._id %>">
+              <i class="fa-solid fa-trash" style="color: #9097a2"></i>
+            </a>
+          </div>
+        </div>
+        <!-- <div class="delete-button">
+            <a href="/delete-contact/?phone=<%= i.phone %>">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div> -->
+      </div>
+      <% } %>
+      <div>
+        <form action="create_contact" method="post">
+          <input type="text" name="name" placeholder="Enter Name" required />
+          <input
+            type="number"
+            name="phone"
+            placeholder="Enter the phone number"
+            required
+          />
+          <button type="submit">Add to List</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- sending form data to create_contact  -->
+
+    <script type="text/javascript" src="/js/home.js"></script>
+  </body>
+</html>
+
+<!-- contact-list.ejs -->

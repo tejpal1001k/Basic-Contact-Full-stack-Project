@@ -1,0 +1,1 @@
+console.log('hey I am from home.js file in assets folder');
